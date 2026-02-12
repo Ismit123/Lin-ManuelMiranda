@@ -8,62 +8,118 @@
 body {
     background-color: #fefae0;
     font-family: 'Quicksand', sans-serif;
-    display: flex; justify-content: center; padding: 20px;
+    display: flex;
+    justify-content: center;
+    padding: 10px; /* Menos padding en móvil */
+    margin: 0;
 }
 
 .cafe-container {
-    max-width: 750px; background: white; border: var(--border); padding: 10px;
-    box-shadow: 10px 10px 0px rgba(0,0,0,0.1);
+    max-width: 800px;
+    width: 100%;
+    background: white;
+    border: var(--border);
+    padding: 10px;
+    box-sizing: border-box;
 }
 
 .top-bar, .bottom-bar {
-    background: var(--matcha-light); border: var(--border); padding: 5px;
-    text-align: center; font-weight: bold; margin-bottom: 10px;
+    background: var(--matcha-light);
+    border: var(--border);
+    padding: 8px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
-.main-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+/* GRID RESPONSIVO */
+.main-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 columnas en PC */
+    gap: 10px;
+}
 
-.card { border: var(--border); padding: 15px; background: #fff; }
+/* MEDIA QUERY: Cuando la pantalla mide menos de 700px (Celulares) */
+@media (max-width: 700px) {
+    .main-grid {
+        grid-template-columns: 1fr; /* Cambia a 1 columna sola */
+    }
+    
+    .name {
+        text-align: center !important; /* Centra el nombre en móvil */
+    }
+}
+
+.card {
+    border: var(--border);
+    padding: 15px;
+    background: #fff;
+    box-sizing: border-box;
+}
 
 .name { 
-    font-family: 'Gaegu', cursive; font-size: 3.5rem; 
-    color: var(--matcha); margin: 0; text-align: right; 
+    font-family: 'Gaegu', cursive; 
+    font-size: clamp(2.5rem, 10vw, 3.5rem); /* Tamaño fluido */
+    color: var(--matcha); 
+    margin: 0; 
+    text-align: right; 
 }
 
 .section-title { 
-    font-size: 1rem; border-bottom: 2px solid #000; 
-    margin-bottom: 10px; padding-bottom: 2px;
+    font-size: 1rem; 
+    border-bottom: 2px solid #000; 
+    margin-bottom: 10px;
 }
 
-.image-box img { width: 100%; border: var(--border); }
+.image-box img { 
+    width: 100%; 
+    height: auto; 
+    border: var(--border); 
+}
 
 /* MUSIC PLAYER */
 .player-bg {
-    background: var(--strawberry); border: var(--border);
-    display: flex; align-items: center; padding: 10px; gap: 10px; margin-top: 10px;
+    background: var(--strawberry);
+    border: var(--border);
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
 }
 
 .disc { font-size: 2rem; }
 .spin { animation: rotate 3s linear infinite; }
 @keyframes rotate { 100% { transform: rotate(360deg); } }
 
-.track-display { background: #fff; border: 1px solid #000; width: 100px; overflow: hidden; }
+.track-display { 
+    background: #fff; 
+    border: 1px solid #000; 
+    width: 100px; 
+    overflow: hidden; 
+}
 
-.song-list { list-style: none; padding: 0; font-size: 0.8rem; margin-top: 10px; }
-.song-list li { cursor: pointer; border-bottom: 1px dashed #ccc; padding: 3px 0; }
-.song-list li:before { content: "♪ "; }
+.btn-ctrl {
+    background: var(--matcha);
+    border: 1px solid #000;
+    cursor: pointer;
+    padding: 2px 8px;
+}
+
+.song-list { list-style: none; padding: 0; font-size: 0.85rem; }
+.song-list li { cursor: pointer; border-bottom: 1px dashed #ccc; padding: 5px 0; }
 
 /* INFO BLOCKS */
-.highlight-green { background: var(--matcha); color: #fff; display: inline-block; padding: 2px 8px; }
-.highlight-pink { background: var(--strawberry); display: inline-block; padding: 2px 8px; }
-.mini-list { list-style: none; padding: 0; font-size: 0.85rem; }
-.quote { font-style: italic; font-size: 0.85rem; border-left: 3px solid var(--matcha); padding-left: 8px; }
+.highlight-green { background: var(--matcha); color: #fff; padding: 2px 8px; display: inline-block; }
+.highlight-pink { background: var(--strawberry); padding: 2px 8px; display: inline-block; }
+.quote { font-style: italic; font-size: 0.85rem; border-left: 3px solid var(--matcha); padding-left: 10px; }
 
-/* AWARDS */
-.awards-row { display: flex; justify-content: space-around; margin-top: 20px; }
+.awards-row { display: flex; justify-content: space-around; margin-top: 15px; }
 .award-item { text-align: center; font-size: 0.7rem; font-weight: bold; }
 .award-item img { width: 30px; }
 
-/* FOOTER */
-.works-footer { grid-column: span 2; margin-top: 10px; text-align: center; }
-.works-text { font-size: 0.8rem; line-height: 1.6; }
+.works-footer { grid-column: span 1; text-align: center; }
+/* En PC el footer ocupa las dos columnas */
+@media (min-width: 701px) {
+    .works-footer { grid-column: span 2; }
+}
+.works-text { font-size: 0.8rem; line-height: 1.5; }
