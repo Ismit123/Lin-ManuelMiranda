@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lin-Manuel Miranda | My idol</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Gaegu&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="cafe-container">
+        <div class="top-bar">Welcome to Lin-Manuel Miranda's creative corner 🍵</div>
+
+        <div class="main-grid">
+            
+            <div class="column card">
+                <h2 class="section-title">• Who is he?</h2>
+                <div class="image-box">
+                    <img src="jobjob.jpg" alt="">
+                </div>
+                <div class="info-block">
+                    <p class="highlight-green"><strong>╰┈➤ About him:</strong></p>
+                    <p>American composer, lyricist, and actor. Born on January 16, 1980. The genius who merged hip-hop with Broadway history. He is just one step away from EGOT status (he only needs an Oscar).</p>
+                </div>
+
+                <div class="music-zone">
+                    <h2 class="section-title">• Best Songs (In my opinion) 🎧</h2>
+                    <div class="player-bg">
+                        <div class="disc" id="vinyl">💿</div>
+                        <div class="player-controls">
+                            <div class="track-display">
+                                <marquee id="track-name" scrollamount="3">Select a song... </marquee>
+                            </div>
+                            <audio id="main-audio"></audio>
+                            <div class="btns">
+                                <button onclick="toggleAudio('play')">▶</button>
+                                <button onclick="toggleAudio('pause')">⏸</button>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="song-list">
+                        <li onclick="playTrack('Alexander Hamilton - Lin-Manuel Miranda.mp3', 'Alexander Hamilton')">Alexander Hamilton (Lin Manuel Miranda)</li>
+                        <li onclick="playTrack('13 Leslie Odom Jr. - Wait for It.mp3', 'Wait For It')"> Wait For It (Leslie Odom Jr.)</li>
+                        <li onclick="playTrack('The Room Where It Happens.mp3', 'The room where it happens')"> The room where it happens (Leslie Odom Jr. - Lin Manuel Miranda)</li>
+                        <li onclick="playTrack('Non-Stop   Alexander Hamilton.mp3', 'Non-Stop')"> Non-Stop  (All of the Cast)</li>
+                        <li onclick="playTrack('Hamilton_The_Musical_Original_Broadway.mp3', 'Guns And Ships')"> Guns and Ships (Daveed Diggs - Leslie Odom Jr.)</li>
+                    </ul>
+                    
+                </div>
+            </div>
+
+            <div class="column card">
+                <h1 class="name">Lin-Manuel𖹭</h1>
+                
+                <div class="info-block">
+                    <p class="highlight-pink"><strong> ✦ Curious facts:</strong></p>
+                    <ul class="mini-list">
+                        <li>• Wrote 'In the Heights' in college.</li>
+                        <li>• Huge Disney fan & collaborator.</li>
+                        <li>• Son named after Sebastian the crab.</li>
+                    </ul>
+                </div>
+
+                <div class="info-block">
+                    <p class="highlight-green"><strong> ♬⋆.˚ Iconic phrases:</strong></p>
+                    <p class="quote">"I am not throwing away my shot!"</p>
+                    <p class="quote">"Legacy. What is a legacy? It’s planting seeds in a garden you never get to see."</p>
+                    <p class="quote">"Life is not about finding yourself, but about creating yourself."</p>
+                    <p class="quote">"History has its eyes on us, so we must tell it with truth and passion."</p>
+
+                </div>
+
+                <div class="info-block">
+                    <p class="highlight-pink"><strong>Why my inspiration:</strong></p>
+                    <p>“Lin-Manuel Miranda taught us that we don’t need permission to tell our own story. From the rhythm of Washington Heights to the legacy of Alexander Hamilton, his music is a reminder that we own our own narrative.”</p>
+                </div>
+
+                <div class="awards-row">
+                    <div class="award-item">
+                        <img src="https://cdn-icons-png.flaticon.com/512/610/610333.png">
+                        <p>TONY:
+                            3
+                        </p>
+                    </div>
+                    <div class="award-item">
+                        <img src="https://cdn-icons-png.flaticon.com/512/610/610333.png">
+                        <p>GRAMMY:
+                            5
+                        </p>
+                    </div>
+                    <div class="award-item">
+                        <img src="https://cdn-icons-png.flaticon.com/512/610/610333.png">
+                        <p>EMMY:
+                            2
+                        </p>
+                    </div>
+                <div class="award-item">
+                        <img src="https://cdn-icons-png.flaticon.com/512/610/610333.png">
+                        <p>PULITZER:
+                            1
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="works-footer card">
+            <h2 class="section-title"> Works & Filmography ★</h2>
+            <div class="works-text">
+                Hamilton • Moana • Encanto • In the Heights • Tick, Tick... Boom! • Vivo • Mary Poppins Returns • The Little Mermaid • Mufasa • Star Wars • 200 Cartas • Summer of Soul • Speech & Debate • Clayton's Friends • Neptune Frost
+            </div>
+        </div>
+
+        <div class="bottom-bar"> 𐔌՞ ܸ.ˬ.ܸ՞𐦯  Your computer must be set to English, otherwise the song will not play.</div>
+    </div>
+
+    <script>
+        const audio = document.getElementById('main-audio');
+        const vinyl = document.getElementById('vinyl');
+        function playTrack(url, name) {
+            audio.src = url; audio.play();
+            document.getElementById('track-name').innerText = name;
+            vinyl.classList.add('spin');
+        }
+        function toggleAudio(st) {
+            st === 'play' ? audio.play() : audio.pause();
+            st === 'play' ? vinyl.classList.add('spin') : vinyl.classList.remove('spin');
+        }
+    </script>
+</body>
+</html>
